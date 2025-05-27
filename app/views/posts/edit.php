@@ -1,0 +1,36 @@
+<h1 class="mb-4">Yazı Düzenle</h1>
+<?php if (!empty($error)): ?>
+    <div class="alert alert-danger"><?= htmlspecialchars($error) ?></div>
+<?php endif; ?>
+<form method="POST" enctype="multipart/form-data">
+    <div class="mb-3">
+        <label for="title" class="form-label">Başlık</label>
+        <input type="text" class="form-control" id="title" name="title" required value="<?= htmlspecialchars($post['title'] ?? '') ?>">
+    </div>
+    <div class="mb-3">
+        <label for="content" class="form-label">İçerik</label>
+        <textarea class="form-control" id="content" name="content" rows="8" required><?= htmlspecialchars($post['content'] ?? '') ?></textarea>
+    </div>
+    <div class="mb-3">
+        <label for="excerpt" class="form-label">Kısa Açıklama</label>
+        <input type="text" class="form-control" id="excerpt" name="excerpt" value="<?= htmlspecialchars($post['excerpt'] ?? '') ?>">
+    </div>
+    <div class="mb-3">
+        <label for="featured_image" class="form-label">Kapak Görseli</label>
+        <?php if (!empty($post['featured_image'])): ?>
+            <div class="mb-2">
+                <img src="<?= htmlspecialchars($post['featured_image']) ?>" alt="Kapak Görseli" style="max-width: 200px;">
+            </div>
+        <?php endif; ?>
+        <input type="file" class="form-control" id="featured_image" name="featured_image">
+    </div>
+    <div class="mb-3">
+        <label for="status" class="form-label">Durum</label>
+        <select class="form-select" id="status" name="status">
+            <option value="draft" <?= ($post['status'] ?? '') === 'draft' ? 'selected' : '' ?>>Taslak</option>
+            <option value="published" <?= ($post['status'] ?? '') === 'published' ? 'selected' : '' ?>>Yayınla</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Güncelle</button>
+    <a href="/posts" class="btn btn-secondary">İptal</a>
+</form> 
