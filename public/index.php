@@ -109,7 +109,7 @@ $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <div class="card bg-dark text-white">
                     <div class="card-body p-5">
                         <h1 class="card-title">Welcome to Our Blog</h1>
-                        <p class="card-text">This is a simple blog platform built with PHP and MySQL.</p>
+                        <p class="card-text">İnteresting posts about technology, science, and more.</p>
                         <?php if (!isset($_SESSION['user_id'])): ?>
                             <a href="register.php" class="btn btn-primary">Get Started</a>
                         <?php endif; ?>
@@ -158,7 +158,7 @@ $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <div class="row">
                 <div class="col-md-6">
                     <h5>Blog</h5>
-                    <p>A simple blog platform built with PHP and MySQL.</p>
+                    <p>İnteresting posts about technology, science, and more.</p>
                 </div>
                 <div class="col-md-3">
                     <h5>Links</h5>
